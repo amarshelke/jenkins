@@ -3,7 +3,7 @@ def servername = env.server_name
 
 
 pipeline{
-    agent {label 'jenkinsnodes'}
+    agent {label 'masternodes'}
     stages{
         stage("Service"){
             steps{
