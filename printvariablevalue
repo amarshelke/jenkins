@@ -20,7 +20,7 @@ pipeline{
 	        }
 		stage("Public variable") {
 	        steps{
-                 echo "mail id= ${VAR_EMAIL}"				
+                 echo "mail id= ${var_email}"				
 	            }
 	        }
 	    }
