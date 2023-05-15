@@ -11,7 +11,7 @@ pipeline{
 	                        echo "The ${JOB_NAME} job running on agent ${NODE_NAME}"
 			    },
 			    c: {
-			    	echo "mail id= ${VAR_EMAIL}"
+			    	echo "mail id= ${var_email}"
 			    }
 	                )         
 	            }
