@@ -24,7 +24,7 @@ pipeline{
 			}
 	        steps{
 	              sh ' ssh "$server" '
-				  sh ' "mkdir ${dest}" '
+				  sh ' mkdir /home/jenkins/amar '
 				  sh ' scp "${server}:${src}" "${dest}" ' 
 	            }
 	        }
