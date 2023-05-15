@@ -9,11 +9,21 @@ pipeline{
 	                    },
 	                    b: {
 	                        echo "The ${JOB_NAME} job running on agent ${NODE_NAME}"
-			    },
-			    c: {
-			    	echo "mail id= ${var_email}"
-			    }
+						},
+						c: {
+							echo "mail id= ${var_email}"
+						}
 	                )         
+	            }
+	        }
+		stage("copy files") {
+		     environment {
+				server="jenkins@192.168.43.28"
+				dest="/home/jenkins/amar"
+				src="/home/node1/jenkinsnodes/workspace/copycommandoutput/CurentDate.txt"
+			}
+	        steps{
+	              sh ' ssh "$server" "mkdir -p $destiny" && scp -r "$src" "$server:$destiny"  ' 
 	            }
 	        }
 	    }
