@@ -24,7 +24,7 @@ pipeline{
 			}
 	        steps{
 	              sh ' ssh "$server" '
-				  sh ' "mkdir ${destiny}" '
+				  sh ' "mkdir ${dest}" '
 				  sh ' scp "${server}:${src}" "${dest}" ' 
 	            }
 	        }
