@@ -1,0 +1,17 @@
+pipeline{
+    agent {label 'masternodes'}
+	stages {
+	    stage('stage 1') {
+	        steps{
+	            parallel(
+	                    a: {
+	                      sh ' echo  Current Date and Time is $(date) > CurentDate.txt '
+	                    },
+	                    b: {
+	                        echo "The ${JOB_NAME} job running on agent ${NODE_NAME}"
+	                    }
+	                )         
+	            }
+	        }
+	    }
+	}
