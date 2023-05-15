@@ -6,9 +6,19 @@ pipeline{
                 echo "Current build number is ${BUILD_NUMBER}"				
 	            }
 	        }
-		stage("Env Build Display Name") {
+		stage("Env Build User Name") {
+	        steps{
+                 echo "Current job name is ${BUILD_USER}"				
+	            }
+	        }	
+		stage("Env Variables") {
 	        steps{
                  echo "Current job name is ${BUILD_DISPLAY_NAME}"				
+	            }
+	        }
+		stage("Public variable") {
+	        steps{
+                 echo "mail id= ${VAR_EMAIL}"				
 	            }
 	        }
 	    }
