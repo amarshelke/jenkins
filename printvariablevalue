@@ -8,8 +8,10 @@ pipeline{
 	        }
 		stage("Env Build User") {
 	        steps{
-                 echo "Current job name is ${BUILD_USER}"				
+                 wrap([$class: 'BuildUser']) {
+                 sh 'echo "${BUILD_USER}"'				
 	            }
+		    }
 	        }	
 		stage("Env Variables") {
 	        steps{
