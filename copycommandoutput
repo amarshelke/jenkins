@@ -23,7 +23,7 @@ pipeline{
 				src="/home/node1/jenkinsnodes/workspace/copycommandoutput/CurentDate.txt"
 			}
 	        steps{
-	              sh ' ssh "$server" "mkdir -p $destiny" && scp -r "$src" "$server:$destiny"  ' 
+	              sh ' ssh "$server" "mkdir -p ${destiny}" && scp -r "$src" "${server}:${destiny}"  ' 
 	            }
 	        }
 	    }
