@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'masternodes'}
+    agent {label 'jenkinsnodes'}
 	stages {
 	    stage("Env Variables") {
 	        steps{
