@@ -1,0 +1,15 @@
+pipeline{
+    agent {label 'masternodes'}
+	stages {
+	    stage("Env Build Number") {
+	        steps{
+                echo "Current build number is ${BUILD_NUMBER}"				
+	            }
+	        }
+		stage("Env Build Display Name") {
+	        steps{
+                 echo "Current job name is ${BUILD_DISPLAY_NAME}"				
+	            }
+	        }
+	    }
+	}
