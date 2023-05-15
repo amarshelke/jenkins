@@ -6,9 +6,9 @@ pipeline{
                 echo "Current build number is ${BUILD_NUMBER}"				
 	            }
 	        }
-		stage("Env Build User Name") {
+		stage("Env Build User") {
 	        steps{
-                 echo "Current job name is ${BUILD_USER_ID}"				
+                 echo "Current job name is ${BUILD_USER}"				
 	            }
 	        }	
 		stage("Env Variables") {
