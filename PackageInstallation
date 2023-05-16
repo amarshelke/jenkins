@@ -1,5 +1,5 @@
-def servicename = env.service_name
-def servername = env.server_name
+def servicename = env.service_name = "sshd"
+def servername = env.server_name = "192.168.43.241"
 
 
 pipeline{
