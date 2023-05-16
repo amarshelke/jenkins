@@ -3,12 +3,11 @@ def servername = env.server_name = "jenkins@192.168.43.28"
 
 
 pipeline{
-    agent {label 'masternodes'}
+    agent {label 'jenkinsnodes'}
     stages{
         stage("Service"){
             steps{
-                 sh ' ssh "$server_name" '
-                sh  "'sudo systemctl status $servicename ; exit 0 '"
+                sh  "'sudo systemctl status $servicename  '"
             }
         }
     }
