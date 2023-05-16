@@ -1,0 +1,25 @@
+node {
+  def remote = [:]
+    remote.name = 'node1'
+    remote.host = '192.168.43.241'
+    remote.user = 'node1'
+    remote.password = 'node1'
+    remote.allowAnyHosts = true
+    serv = 'postgresql'
+    
+  stage('Remote SSH') {
+    sshCommand remote: remote, command: "ls -lrt"
+    sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt update " 
+   sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt install $serv -Y " 
+    def output = sshCommand remote: remote, command: "echo $remote.password | sudo -S systemctl status ${serv} | grep Active |cut -c 6-11 "
+	sshCommand remote: remote, command: "echo $output"
+	if ( "$output" == 'Active') {
+            echo " $serv is active "
+        } else {
+            sshCommand remote: remote, command: "echo $remote.password | sudo -S  systemctl start $serv "
+        }
+	/sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt update "/
+
+  }
+}
+ 
