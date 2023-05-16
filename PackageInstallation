@@ -1,5 +1,5 @@
 def servicename = env.service_name = "sshd"
-def servername = env.server_name = "192.168.43.28"
+def server = env.server_name = "jenkins@192.168.43.28"
 
 
 pipeline{
@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Service"){
             steps{
-                sh "ssh jenkins@${servername}"
+                 sh ' ssh "$server" '
                 sh  "'sudo systemctl status $servicename ; exit 0 '"
             }
         }
