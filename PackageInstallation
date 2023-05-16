@@ -10,7 +10,7 @@ node {
   stage('Remote SSH') {
     sshCommand remote: remote, command: "ls -lrt"
     sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt update " 
-   sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt install $serv -Y " 
+   sshCommand remote: remote, command: "echo $remote.password | sudo -S  apt install $serv -y " 
     def output = sshCommand remote: remote, command: "echo $remote.password | sudo -S systemctl status ${serv} | grep Active |cut -c 6-11 "
 	sshCommand remote: remote, command: "echo $output"
 	if ( "$output" == 'Active') {
