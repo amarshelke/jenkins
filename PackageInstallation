@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Service"){
             steps{
-                sh  ' sudo systemctl status $servicename  '
+                sh  ' sudo apt update  '
             }
         }
     }
