@@ -7,7 +7,8 @@ pipeline{
     stages{
         stage("Service"){
             steps{
-                sh "ssh jenkins@${servername} | 'sudo systemctl status $servicename ; exit 0 '"
+                sh "ssh jenkins@${servername}"
+                sh  "'sudo systemctl status $servicename ; exit 0 '"
             }
         }
     }
